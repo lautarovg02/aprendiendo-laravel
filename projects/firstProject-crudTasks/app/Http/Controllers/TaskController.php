@@ -14,7 +14,7 @@ class TaskController extends Controller
      */
     public function index():View
     {
-        $tasks = Task::latest()->paginate(3);
+        $tasks = Task::latest()->paginate(5);
         return view('index', ['tasks' => $tasks]);
     }
 
@@ -61,7 +61,10 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task):RedirectResponse
     {
-        // agregar validation 
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
         $task->update($request->all());
         return redirect()->route('tasks.index')->with('success', 'Nueva tarea actualizada exitosamente');
     }

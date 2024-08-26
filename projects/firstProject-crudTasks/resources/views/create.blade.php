@@ -40,7 +40,7 @@
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
                 <div class="form-group">
                     <strong>Fecha límite:</strong>
-                    <input type="date" name="due_date" class="form-control" id="">
+                    <input type="date" name="dua_date" class="form-control" id="">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
