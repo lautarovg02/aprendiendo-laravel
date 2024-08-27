@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('tasks/searchByStatus', [TaskController::class, 'searchByStatus'])->name('tasks.searchByStatus');
 Route::resource('tasks', TaskController::class);
-Route::resource('tasks/:task', TaskController::class);

@@ -40,6 +40,13 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Nueva tarea creada exitosamente');
     }
 
+    public function searchByStatus(Request $request):View
+    {
+        $status = $request->query('status');
+        $tasks = Task::where('status', $status)->paginate(5);
+        return view('index',['tasks' => $tasks]);
+    }
+
     /**
      * Display the specified resource.
      */
