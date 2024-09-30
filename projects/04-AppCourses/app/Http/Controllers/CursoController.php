@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCurso;
 use App\Models\Curso;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\HttpCache\Store;
-
 class CursoController extends Controller
 {
     public function index(){
@@ -28,6 +26,11 @@ class CursoController extends Controller
 
         $curso->save();
         return redirect()->route('cursos.show', $curso);
+    }
+
+    public function destroy(Curso $curso){
+        $curso->delete();
+        return redirect()->route('cursos.index');
     }
 
     public function show($curso){
