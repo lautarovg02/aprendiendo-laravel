@@ -23,6 +23,8 @@ class CursoController extends Controller
         $curso->name = $request->name;
         $curso->category = $request->category;
         $curso->description = $request->description;
+        $curso->slug = $request->slug;
+
 
         $curso->save();
         return redirect()->route('cursos.show', $curso);
@@ -33,10 +35,10 @@ class CursoController extends Controller
         return redirect()->route('cursos.index');
     }
 
-    public function show($curso){
+    public function show(Curso $curso){
       
       //  return view('cursos.show', ['curso' => $curso]);
-      $curso = Curso::find($curso);
+      //$curso = Curso::find($curso);
 
       return view('cursos.show', compact('curso'));
 
@@ -51,6 +53,7 @@ class CursoController extends Controller
             'name' => 'required|min:3',
             'description' => 'required',
             'category' => 'required',
+            'slug' => 'required|min:3|unique:cursos,slug,' . $curso->id
         ]);
 
         

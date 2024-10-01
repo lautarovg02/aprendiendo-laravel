@@ -25,6 +25,7 @@ class StoreCurso extends FormRequest
             'name' => 'required|min:3',
             'description' => 'required',
             'category' => 'required',
+            'slug' => 'required|min:3|unique:cursos'
         ];
     }
 
@@ -32,6 +33,7 @@ class StoreCurso extends FormRequest
     {
         return [
             'description.required' => 'La descripcion es obligatoria ',
+            'slug.unique' => 'Este slug ya existe para otro curso'
         ];    
     }
 
