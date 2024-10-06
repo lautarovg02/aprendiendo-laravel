@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('denomination',40);
             $table->integer('cuit');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('street',40)->nullable();
             $table->integer('number')->nullable();    
             $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('city');     
+            $table->foreign('city_id')->references('id')->on('cities');     
             $table->timestamps();
         });
     }

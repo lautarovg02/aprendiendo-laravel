@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\City;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,17 @@ class CompanyFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            //
-        ];
+        return [  
+            'denomination' => $this->faker->word,  
+            'cuit' => $this->faker->unique()->numberBetween(20000000, 20999999),  
+            'company_name' => $this->faker->company,  
+            'sector' => $this->faker->word,  
+            'entity' => $this->faker->word,  
+            'company_category' => $this->faker->word,  
+            'scope' => $this->faker->word,  
+            'street' => $this->faker->streetName,  
+            'number' => $this->faker->numberBetween(1, 1000),  
+            'city_id' => City::inRandomOrder()->first()->id, // Asegúrate de que los IDs de ciudad existan  
+        ]; 
     }
 }

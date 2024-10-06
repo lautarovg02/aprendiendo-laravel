@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employee', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string("name",40);
             $table->string("lastname",40);
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("position",100);
             $table->boolean("is_represent");
             $table->unsignedBigInteger("company_id");
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Province;
 use App\Models\City;
+use App\Models\Company;
+use App\Models\Employee;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         Province::factory()->count(23)->create();
         City::factory()->count(70)->create();
+        Company::factory()->count(20)->create();
+        Employee::factory()->count(100)->create();
     }
 }
